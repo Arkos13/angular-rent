@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RentalService} from '../shared/rental.service';
-import {Rental} from '../shared/rental.module';
+import {Rental} from '../shared/rental.model';
 
 @Component({
   selector: 'app-rental-detail',
@@ -16,12 +16,12 @@ export class RentalDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params) => {
-        this.getRental(parseInt(params['rentalId'], 0));
+        this.getRental(params['rentalId']);
       }
     );
   }
 
-  getRental(rentalId: number) {
+  getRental(rentalId: string) {
     this.rentalService.getRentalById(rentalId).subscribe(
       (rental: Rental) => {
         this.rental = rental;
