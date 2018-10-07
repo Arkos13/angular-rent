@@ -4,6 +4,9 @@
       <div class="col-md-6">
         <img src="{{rental.image}}" alt="">
       </div>
+      <div class="col-md-6">
+        <app-map [location]="rental.city + ', ' + rental.street"> </app-map>
+      </div>
     </div>
   </div>
 

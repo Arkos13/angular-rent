@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './common/header/header.component';
 
 import {RentalModule} from './rental/rental.module';
+import {MapModule} from './common/map/map.module';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    RentalModule
+    RentalModule,
+    MapModule
   ],
   providers: [],
   bootstrap: [AppComponent]

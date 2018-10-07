@@ -8,6 +8,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import {NgPipesModule} from 'ngx-pipes';
 import {UppercasePipe} from '../common/pipes/uppercase.pipe';
+import {MapModule} from '../common/map/map.module';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgPipesModule
+    NgPipesModule,
+    MapModule
   ],
 })
 export class RentalModule { }
