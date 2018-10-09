@@ -12,7 +12,7 @@ import {MapService} from './map.service';
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA-GhNIhwzZlPnQHDl1Gxm69ywn0UrKBhk'
+      apiKey: ''
     })
   ],
   providers: [
