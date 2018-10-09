@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import {MapComponent} from './map.component';
 import { AgmCoreModule } from '@agm/core';
 import {MapService} from './map.service';
+import {CamelizePipe} from 'ngx-pipes';
+import {environment} from '../../../environments/environment';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -12,11 +15,13 @@ import {MapService} from './map.service';
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+      apiKey: environment.GOOGLE_MAP_API_KEY
+    }),
+    CommonModule
   ],
   providers: [
-    MapService
+    MapService,
+    CamelizePipe
   ]
 })
 export class MapModule { }
