@@ -7,6 +7,7 @@ import {HeaderComponent} from './common/header/header.component';
 
 import {RentalModule} from './rental/rental.module';
 import {MapModule} from './common/map/map.module';
+import {AuthModule} from './auth/auth.module';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RentalModule,
-    MapModule
+    MapModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
