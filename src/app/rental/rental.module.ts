@@ -6,9 +6,11 @@ import {CommonModule} from '@angular/common';
 import {RentalService} from './shared/rental.service';
 import {Routes, RouterModule} from '@angular/router';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
+import { RentalDetailBookingComponent } from './rental-detail/rental-detail-booking/rental-detail-booking.component';
 import {NgPipesModule} from 'ngx-pipes';
 import {UppercasePipe} from '../common/pipes/uppercase.pipe';
 import {MapModule} from '../common/map/map.module';
+import { Daterangepicker } from 'ng2-daterangepicker';
 
 const routes: Routes = [
   {
@@ -27,6 +29,7 @@ const routes: Routes = [
     RentalListComponent,
     RentalListItemComponent,
     RentalDetailComponent,
+    RentalDetailBookingComponent,
     UppercasePipe
   ],
   providers: [RentalService],
@@ -34,7 +37,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     NgPipesModule,
-    MapModule
+    MapModule,
+    Daterangepicker,
   ],
 })
 export class RentalModule { }
