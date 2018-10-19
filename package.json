@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@auth0/angular-jwt": "^2.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.3.0",
     "@types/jquery": "^3.3.17",
     "bootstrap": "^4.1.0",
     "core-js": "^2.5.4",
@@ -30,6 +31,7 @@
     "moment": "^2.22.2",
     "ng2-daterangepicker": "^2.0.12",
     "ngx-pipes": "^2.3.5",
+    "ngx-toastr": "^9.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

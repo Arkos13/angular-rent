@@ -11,6 +11,9 @@ import {NgPipesModule} from 'ngx-pipes';
 import {UppercasePipe} from '../common/pipes/uppercase.pipe';
 import {MapModule} from '../common/map/map.module';
 import { Daterangepicker } from 'ng2-daterangepicker';
+import { BookingService } from '../booking/shared/booking.service';
+import { HelperService } from '../common/service/helper.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -32,13 +35,19 @@ const routes: Routes = [
     RentalDetailBookingComponent,
     UppercasePipe
   ],
-  providers: [RentalService],
+  providers: [
+    RentalService,
+    HelperService,
+    BookingService,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     NgPipesModule,
     MapModule,
     Daterangepicker,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class RentalModule { }

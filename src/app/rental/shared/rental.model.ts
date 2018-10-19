@@ -1,3 +1,5 @@
+import {Booking} from '../../booking/shared/booking.model';
+
 export class Rental {
   _id: string;
   title: string;
@@ -11,5 +13,6 @@ export class Rental {
   shared: boolean;
   bedrooms: number;
   createdAt: string;
+  bookings: Booking[];
 }
 

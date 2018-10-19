@@ -4,6 +4,9 @@ import {Routes, RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './common/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {RentalModule} from './rental/rental.module';
 import {MapModule} from './common/map/map.module';
@@ -28,7 +31,10 @@ const routes: Routes = [
     HttpClientModule,
     RentalModule,
     MapModule,
-    AuthModule
+    AuthModule,
+    NgbModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
