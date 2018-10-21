@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .navbar {
   padding: 20px;
@@ -35,6 +35,14 @@
       border-color: $main-color !important;
       color: $main-color !important;
       box-shadow: none;
+    }
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+
+    &:active, &:focus {
+      background-color: $main-color;
     }
   }
 }

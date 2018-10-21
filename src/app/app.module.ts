@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RentalModule} from './rental/rental.module';
 import {MapModule} from './common/map/map.module';
 import {AuthModule} from './auth/auth.module';
+import {ManageModule} from './manage/manage.module';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     RentalModule,
     MapModule,
     AuthModule,
+    ManageModule,
     NgbModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,

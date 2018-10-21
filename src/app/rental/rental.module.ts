@@ -14,6 +14,9 @@ import { Daterangepicker } from 'ng2-daterangepicker';
 import { BookingService } from '../booking/shared/booking.service';
 import { HelperService } from '../common/service/helper.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RentalSearchComponent } from './rental-search/rental-search.component';
+import { RentalCreateComponent } from './rental-create/rental-create.component';
+import { AuthGuard } from '../auth/shared/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +25,8 @@ const routes: Routes = [
     children: [
       { path: '', component: RentalListComponent},
       { path: ':rentalId', component: RentalDetailComponent},
+      { path: ':city/homes', component: RentalSearchComponent},
+      { path: 'create', component: RentalCreateComponent, canActivate: [AuthGuard] },
     ]
   }
 ];
@@ -33,7 +38,9 @@ const routes: Routes = [
     RentalListItemComponent,
     RentalDetailComponent,
     RentalDetailBookingComponent,
-    UppercasePipe
+    UppercasePipe,
+    RentalSearchComponent,
+    RentalCreateComponent
   ],
   providers: [
     RentalService,
