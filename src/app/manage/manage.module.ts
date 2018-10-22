@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgPipesModule } from 'ngx-pipes';
+import { ManageRentalBookingComponent } from './manage-rental/manage-rental-booking/manage-rental-booking.component';
 import { ManageComponent } from './manage.component';
 import { ManageBookingComponent } from './manage-booking/manage-booking.component';
 import { ManageRentalComponent } from './manage-rental/manage-rental.component';
+import { FormatDatePipe } from '../common/pipes/format-date.pipe';
 import { RentalService } from '../rental/shared/rental.service';
 import { BookingService } from '../booking/shared/booking.service';
 import { AuthGuard } from '../auth/shared/auth.guard';
-import { ManageRentalBookingComponent } from './manage-rental/manage-rental-booking/manage-rental-booking.component';
-
 const routes: Routes = [
   {
     path: 'manage',
@@ -26,7 +26,8 @@ const routes: Routes = [
     ManageComponent,
     ManageBookingComponent,
     ManageRentalComponent,
-    ManageRentalBookingComponent
+    ManageRentalBookingComponent,
+    FormatDatePipe
   ],
   imports: [
     RouterModule.forChild(routes),

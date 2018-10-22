@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "variables";
+@import 'variables';
+
 html, body, p {
   color: $main-text-color;
 }
@@ -15,6 +16,7 @@ html, body, p {
 .house {
   color: #bf1818;
 }
+
 
 .page-title {
   font-size: 30px;
