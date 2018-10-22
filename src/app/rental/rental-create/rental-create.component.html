@@ -3,15 +3,21 @@
     <div class="row">
       <div class="col-md-5">
         <h1 class="page-title">Create Rental</h1>
-        <form #rentalForm="ngForm">
+        <form [formGroup]="rentalForm" (ngSubmit)="createRental()">
           <div class="form-group">
             <label for="title">Title</label>
             <input type="text"
                    class="form-control"
                    id="title"
                    name="title"
-                   [(ngModel)]="newRental.title"
+                   formControlName="title"
                    required>
+            <div *ngIf="isInvalidForm('title')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('title')">
+                Title is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -20,8 +26,14 @@
                    class="form-control"
                    id="city"
                    name="city"
-                   [(ngModel)]="newRental.city"
+                   formControlName="city"
                    required>
+            <div *ngIf="isInvalidForm('city')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('city')">
+                City is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -30,8 +42,14 @@
                    class="form-control"
                    id="street"
                    name="street"
-                   [(ngModel)]="newRental.street"
+                   formControlName="street"
                    required>
+            <div *ngIf="isInvalidForm('street')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('street')">
+                Street is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -40,7 +58,7 @@
             <select class="form-control"
                     id="category"
                     name="category"
-                    [(ngModel)]="newRental.category"
+                    formControlName="category"
                     required>
               <option *ngFor="let category of rentalCategories"> {{category}} </option>
 
@@ -54,8 +72,14 @@
                    class="form-control"
                    id="image"
                    placeholder="Upload file..."
-                   (change)="handleImageChange()"
+                   formControlName="image"
                    required>
+            <div *ngIf="isInvalidForm('image')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('image')">
+                Image is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -64,8 +88,14 @@
                    class="form-control"
                    id="bedrooms"
                    name="bedrooms"
-                   [(ngModel)]="newRental.bedrooms"
+                   formControlName="bedrooms"
                    required>
+            <div *ngIf="isInvalidForm('bedrooms')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('bedrooms')">
+                Bedrooms is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -75,9 +105,15 @@
                       class="form-control"
                       id="description"
                       name="description"
-                      [(ngModel)]="newRental.description"
+                      formControlName="description"
                       required>
             </textarea>
+            <div *ngIf="isInvalidForm('description')"
+                 class="alert alert-danger">
+              <div *ngIf="isRequired('description')">
+                Description is required.
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -90,8 +126,14 @@
                      name="dailyRate"
                      class="form-control"
                      id="dailyRate"
-                     [(ngModel)]="newRental.dailyRate"
+                     formControlName="dailyRate"
                      required>
+              <div *ngIf="isInvalidForm('dailyRate')"
+                   class="alert alert-danger">
+                <div *ngIf="isRequired('dailyRate')">
+                  DailyRate is required.
+                </div>
+              </div>
             </div>
           </div>
 
@@ -101,14 +143,9 @@
                    class="form-control"
                    id="shared"
                    name="shared"
-                   [(ngModel)]="newRental.shared"
-                   required>
+                   formControlName="shared">
           </div>
-          <button (click)="createRental()"
-                  [disabled]="!rentalForm.form.valid || !newRental.image"
-                  type="button"
-                  class="btn btn-bwm">Submit
-          </button>
+          <button [disabled]="!rentalForm.valid" type="submit" class="btn btn-bwm">Submit</button>
         </form>
         <div *ngIf="errors.length > 0" class="alert alert-danger">
           <p *ngFor="let error of errors">

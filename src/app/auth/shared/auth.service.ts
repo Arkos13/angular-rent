@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from 'moment';
+import {environment} from '../../../environments/environment';
 
 const jwt = new JwtHelperService();
 
@@ -32,11 +33,11 @@ export class AuthService {
   }
 
   public register(userData: any): Observable<any> {
-    return this.http.post('api/v1/register', userData);
+    return this.http.post(`${environment.apiURL}/api/v1/register`, userData);
   }
 
   public login(userData: any): Observable<any> {
-    return this.http.post('api/v1/auth', userData).pipe(map(
+    return this.http.post(`${environment.apiURL}/api/v1/auth`, userData).pipe(map(
       (token: string) => this.saveToken(token)
     ));
   }
