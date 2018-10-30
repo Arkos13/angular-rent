@@ -7,7 +7,7 @@ import {RentalService} from './shared/rental.service';
 import {Routes, RouterModule} from '@angular/router';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { RentalDetailBookingComponent } from './rental-detail/rental-detail-booking/rental-detail-booking.component';
-import {NgPipesModule} from 'ngx-pipes';
+import { NgPipesModule, UcWordsPipe } from 'ngx-pipes';
 import {UppercasePipe} from '../common/pipes/uppercase.pipe';
 import {MapModule} from '../common/map/map.module';
 import { Daterangepicker } from 'ng2-daterangepicker';
@@ -17,6 +17,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RentalSearchComponent } from './rental-search/rental-search.component';
 import { RentalCreateComponent } from './rental-create/rental-create.component';
 import { AuthGuard } from '../auth/shared/auth.guard';
+import { RentalGuard } from './shared/rental.guard';
+import { RentalUpdateComponent } from './rental-update/rental-update.component';
+import { EditableModule } from '../common/components/editable/editable.module';
+// import { ImageUploadModule } from '../common/components/image-upload/image-upload.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -25,6 +30,7 @@ const routes: Routes = [
     children: [
       { path: '', component: RentalListComponent},
       { path: 'create', component: RentalCreateComponent, canActivate: [AuthGuard] },
+      { path: ':rentalId/edit', component: RentalUpdateComponent, canActivate: [AuthGuard, RentalGuard] },
       { path: ':rentalId', component: RentalDetailComponent},
       { path: ':city/homes', component: RentalSearchComponent}
     ]
@@ -40,21 +46,27 @@ const routes: Routes = [
     RentalDetailBookingComponent,
     UppercasePipe,
     RentalSearchComponent,
-    RentalCreateComponent
+    RentalCreateComponent,
+    RentalUpdateComponent
   ],
   providers: [
     RentalService,
     HelperService,
     BookingService,
+    RentalGuard,
+    UcWordsPipe
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     RouterModule.forChild(routes),
     NgPipesModule,
     MapModule,
     Daterangepicker,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EditableModule,
+    // ImageUploadModule
   ],
 })
 export class RentalModule { }

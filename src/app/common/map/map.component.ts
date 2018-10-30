@@ -1,13 +1,15 @@
-import {Component, Input, ChangeDetectorRef, OnInit} from '@angular/core';
+import {Component, Input, ChangeDetectorRef, OnInit, OnDestroy} from '@angular/core';
 import {MapService} from './map.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnDestroy {
   @Input() location: string;
+  @Input() locationSubject: Subject<any>;
   lat: number;
   lng: number;
   isPositionError = false;
@@ -15,6 +17,19 @@ export class MapComponent implements OnInit {
               private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
+    if (this.locationSubject) {
+      this.locationSubject.subscribe((location: string) => {
+        this.getLocation(location);
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.locationSubject) {
+      this.locationSubject.subscribe((location: string) => {
+        this.getLocation(location);
+      });
+    }
   }
 
   getLocation(location) {
