@@ -20,6 +20,7 @@ export class RentalCreateComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.newRental = new Rental();
     this.initForm();
   }
 
@@ -35,6 +36,15 @@ export class RentalCreateComponent implements OnInit {
       dailyRate: ['', Validators.required],
       shared: [false],
     });
+
+    this.rentalForm.value.title = 'sdf';
+    this.rentalForm.value.city = 'sdf';
+    this.rentalForm.value.street = 'sdf';
+    this.rentalForm.value.category = 'sdf';
+    this.rentalForm.value.image = 'sdf';
+    this.rentalForm.value.bedrooms = 3;
+    this.rentalForm.value.description = 'sdf';
+    this.rentalForm.value.dailyRate = 100;
   }
 
   public isInvalidForm(fieldName): boolean {
@@ -55,6 +65,14 @@ export class RentalCreateComponent implements OnInit {
         this.errors = errorResponse.error.errors;
       }
     );
+  }
+
+  handleImageUpload(imageUrl: string) {
+    this.rentalForm.controls['image'].patchValue(imageUrl);
+  }
+
+  handleImageError() {
+    this.rentalForm.value.image = '';
   }
 
 }

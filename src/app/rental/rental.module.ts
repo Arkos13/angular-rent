@@ -20,7 +20,7 @@ import { AuthGuard } from '../auth/shared/auth.guard';
 import { RentalGuard } from './shared/rental.guard';
 import { RentalUpdateComponent } from './rental-update/rental-update.component';
 import { EditableModule } from '../common/components/editable/editable.module';
-// import { ImageUploadModule } from '../common/components/image-upload/image-upload.module';
+import { ImageUploadModule } from '../common/components/image-upload/image-upload.module';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
@@ -66,7 +66,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     EditableModule,
-    // ImageUploadModule
+    ImageUploadModule
   ],
 })
 export class RentalModule { }
