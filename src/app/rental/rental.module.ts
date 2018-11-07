@@ -22,6 +22,7 @@ import { RentalUpdateComponent } from './rental-update/rental-update.component';
 import { EditableModule } from '../common/components/editable/editable.module';
 import { ImageUploadModule } from '../common/components/image-upload/image-upload.module';
 import { HttpClientModule } from '@angular/common/http';
+import {PaymentModule} from '../payment/payment.module';
 
 const routes: Routes = [
   {
@@ -66,7 +67,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     EditableModule,
-    ImageUploadModule
+    ImageUploadModule,
+    PaymentModule
   ],
 })
 export class RentalModule { }

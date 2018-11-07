@@ -1,0 +1,7 @@
+<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeForm">
+  <input class="form-group" type="text" formControlName="name" placeholder="Jane Doe">
+  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+  <button type="submit" class="btn btn-bwm">
+    Pay
+  </button>
+</form>
