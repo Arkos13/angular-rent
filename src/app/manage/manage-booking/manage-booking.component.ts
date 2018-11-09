@@ -35,4 +35,20 @@ export class ManageBookingComponent implements OnInit {
       }
     );
   }
+
+  acceptPayment(payment: Payment) {
+    this.paymentService.acceptPayment(payment).subscribe(
+      (json) => {
+        payment.status = 'paid';
+      }
+    );
+  }
+
+  declinePayment(payment: Payment) {
+    this.paymentService.declinePayment(payment).subscribe(
+      (json) => {
+        payment.status = 'decline';
+      }
+    );
+  }
 }
