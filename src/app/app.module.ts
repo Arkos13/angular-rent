@@ -12,6 +12,7 @@ import {RentalModule} from './rental/rental.module';
 import {MapModule} from './common/map/map.module';
 import {AuthModule} from './auth/auth.module';
 import {ManageModule} from './manage/manage.module';
+import {UserModule} from './user/user.module';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     MapModule,
     AuthModule,
     ManageModule,
+    UserModule,
     NgbModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
