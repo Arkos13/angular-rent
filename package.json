@@ -29,7 +29,7 @@
     "font-awesome": "^4.7.0",
     "fstream": ">=1.0.12",
     "handlebars": ">=4.0.14",
-    "jquery": ">=3.4.1",
+    "jquery": ">=3.5.0",
     "js-yaml": ">=3.13.1",
     "moment": "^2.22.2",
     "ng2-daterangepicker": "^2.0.12",
